@@ -6,22 +6,22 @@ import java.util.Arrays;
  * Created by admin on 7/5/2016.
  */
 public class Inversions {
-    public static int sortAndCount(Comparable[] a) {
+    public static double sortAndCount(Comparable[] a) {
         Comparable[] aux = new Comparable[a.length];
         return sortAndCount(a, aux, 0, a.length - 1);
     }
 
-    private static int sortAndCount(Comparable[] a, Comparable[] aux, int lo, int hi) {
-        if (hi <= lo) return 0;
+    private static double sortAndCount(Comparable[] a, Comparable[] aux, int lo, int hi) {
+        if (hi <= lo) return 0.0;
         int mid = lo + (hi - lo) / 2;
-        int x = sortAndCount(a, aux, lo, mid);
-        int y = sortAndCount(a, aux, mid + 1, hi);
-        int z = mergeAncCount(a, aux, lo, mid, hi);
+        double x = sortAndCount(a, aux, lo, mid);
+        double y = sortAndCount(a, aux, mid + 1, hi);
+        double z = mergeAncCount(a, aux, lo, mid, hi);
         return x + y + z;
     }
 
-    private static int mergeAncCount(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
-        int count = 0;
+    private static double mergeAncCount(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+        double count = 0;
 
         int i = lo;
         int j = mid + 1;
