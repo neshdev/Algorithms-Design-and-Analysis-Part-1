@@ -1,9 +1,11 @@
+package week1;
+
 import java.util.Arrays;
 
 /**
  Description: Inversions with trace output
  */
-public class Inversions {
+public class Inversions2 {
     public static void main(String[] args) {
         Integer[] a = {6,5,4,3,2,1};
 
