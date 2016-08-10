@@ -1,4 +1,4 @@
-package neshdev.collections;
+package week3;
 
 import java.util.Iterator;
 
