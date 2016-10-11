@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Assignment4Test {
 
-    private static String INPUT_FILENAME = "C:\\coursera\\algo-stanford\\algo-stanford\\src\\test\\java\\week4\\SCC.txt";
+    private static String INPUT_FILENAME = "C:\\New folder\\SCC.txt";
     private int INPUT_MAX_VERTICIES = 875714 + 1;
 
     @Test
@@ -28,26 +28,38 @@ public class Assignment4Test {
         Assert.assertTrue(g.reverse().V() == INPUT_MAX_VERTICIES);
 
         SCC scc = new SCC(g);
+        int x = 0;
         for (Integer i : scc.sumComponents()) {
             System.out.println(i);
+            x++;
+            if ( x > 5) break;
         }
+        s.close();
     }
 
     //@Test
     public void directedGraphSCCOnSampleProblem(){
         int v = 10;
         DirectedGraph g = new DirectedGraph(v);
-        g.addEdge(1, 5);
-        g.addEdge(2, 3);
-        g.addEdge(3, 4);
-        g.addEdge(4, 2);
-        g.addEdge(4, 5);
-        g.addEdge(5, 6);
-        g.addEdge(6, 1);
-        g.addEdge(6, 9);
-        g.addEdge(7, 8);
-        g.addEdge(8, 9);
+        g.addEdge(1, 4);
+        g.addEdge(4, 7);
+        g.addEdge(7, 1);
+
+        g.addEdge(9, 3);
         g.addEdge(9, 7);
+        g.addEdge(3, 6);
+        g.addEdge(6, 9);
+
+        g.addEdge(8,5);
+        g.addEdge(8,6);
+        g.addEdge(2, 8);
+        g.addEdge(5, 2);
+
+        SCC scc = new SCC(g);
+
+        for (Integer i: scc.sumComponents()) {
+            Assert.assertTrue((i - 3) == 0);
+        }
 
     }
 }
