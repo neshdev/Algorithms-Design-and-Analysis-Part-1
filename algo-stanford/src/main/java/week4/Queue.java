@@ -43,6 +43,16 @@ public class Queue<T> implements Iterable<T> {
         n = 0;
     }
 
+    public Queue(Iterable<T> items){
+        addRange(items);
+    }
+
+    public void addRange(Iterable<T> items){
+        for (T item: items) {
+            enqueue(item);
+        }
+    }
+
     public void enqueue(T item){
         Node oldNode = tail;
         Node newNode = new Node();
